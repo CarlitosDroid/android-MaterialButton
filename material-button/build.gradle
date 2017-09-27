@@ -1,6 +1,30 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'material-button'
+
+    publishedGroupId = 'com.github.carlitosdroid'
+    libraryName = 'MaterialButton'
+    artifact = 'material-button'
+
+    libraryDescription = 'A simple material button for android applications'
+
+    siteUrl = 'https://github.com/CarlitosDroid/android-MaterialButton'
+    gitUrl = 'https://github.com/CarlitosDroid/android-MaterialButton.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'CarlitosDroid'
+    developerName = 'Carlos Leonardo Camilo'
+    developerEmail = 'carlosleonardovargashuaman@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -32,9 +56,13 @@ dependencies {
     androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.1', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
 }
 repositories {
     mavenCentral()
 }
+
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
